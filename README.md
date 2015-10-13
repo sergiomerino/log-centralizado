@@ -130,6 +130,7 @@ ojo
 
 https://github.com/kubernetes/kubernetes/blob/master/docs/getting-started-guides/logging.md
 https://github.com/kubernetes/kubernetes/blob/release-1.0/contrib/logging/fluentd-sidecar-gcp/README.md
+http://blog.kubernetes.io/2015/06/cluster-level-logging-with-kubernetes.html
 
 
 
