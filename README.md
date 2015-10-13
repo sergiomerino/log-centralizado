@@ -122,6 +122,17 @@ http://jasonwilder.com/blog/2013/11/19/fluentd-vs-logstash/
 
 http://logstash.net/docs/1.2.2/life-of-an-event
 
+https://www.quora.com/What-are-the-pros-and-cons-of-logstash-vs-fluentd
+
+http://www.fluentd.org/guides/recipes/docker-logging
+
+ojo
+
+https://github.com/kubernetes/kubernetes/blob/master/docs/getting-started-guides/logging.md
+https://github.com/kubernetes/kubernetes/blob/release-1.0/contrib/logging/fluentd-sidecar-gcp/README.md
+
+
+
 
 Temas a mirar:
 
