@@ -1,9 +1,11 @@
-# Premisas 12factor.net
+# Premisas 12factor
 Logs as stream events
 
-Logs are the stream of aggregated, time-ordered events collected from the output streams of all running processes and backing services. Logs in their raw form are typically a text format with one event per line (though backtraces from exceptions may span multiple lines). Logs have no fixed beginning or end, but flow continuously as long as the app is operating.
+Logs are the stream of aggregated, time-ordered events collected from the output streams of all running processes and backing services. 
+Logs son el 
+Logs in their raw form are typically a text format with one event per line (though backtraces from exceptions may span multiple lines). Logs have no fixed beginning or end, but flow continuously as long as the app is operating.
 
-Una app 12 factor nunca se ocupa de enrutamiento o almacenamiento de su flujo de salida. No debe tratar de escribir o manejar ficheros de log.
+Una app 12 factor
 
 /var/log/docker/containers/$CONTAINER_ID/$CONTAINER_ID-json.log -- in this case for json logging.
 
@@ -15,14 +17,16 @@ host’s Docker server.
 
 
 # Consideraciones
-Puede ser necesario que algunos contenedores sean conscientes de que existen otros en el mismo nodo que les proporcionan servicios. Un ejemplo de ello, es un contenedor que proporciona un servicio de log collection. Este tipo de contenedors necesitan acceder a los procesos docker del host con el objetivo de poder comunicar con ellos y consultar sobre la existencia de contenedores y su configuracion
+Puede ser necesario que algunos contenedores sean conscientes de que existen otros en el mismo nodo que les proporcionan servicios. Un ejemplo de ello, es un contenedor que proporciona un servicio de log collection. Este tipo de contenedores necesitan acceder a los procesos docker del host con el objetivo de poder comunicar con ellos y consultar sobre la existencia de contenedores y su configuracion.
 
-SOLUCION - enviar los logs de todos los contenedores a un servicio de agregación de logs y queremos que dicho servicio corra
+SOLUCION - Enviar los logs de todos los contenedores a un servicio de agregación de logs y queremos que dicho servicio corra
 en un contenedor. El servicio de logs será fluentd o logstash y será necesario configurarlo para poder llevarlo a cabo. 
 
 ¿Donde almacena los logs docker?
 
 # Problematica
+  Logs proporciona una idea del estado de un sistema. Susceptiblemente, cada proceso que corre en un sistema genera logs de una forma u otra. Normalmente, los logs son escritos en ficheros en disco local. Si el sistema crece a multiples hosts, gestionar los mismos y acceder a ellos puede ser complicado. Buscar un error particular entre cientos de ficheros de logs es complejo. Una aproximación común es configurar una solución de log centralizado. Si hablamos del caso concreto de contenedores, dentro de un contenedor corren aplicaciones y la idea de futuro es que la APLICACIÓN nunca se ocupa del enrutamiento o almacenamiento de su flujo de salida. La aplicación no debe tratar de escribir o manejar ficheros de log.
+  
 Logs are a critical part of any system, they give you insight into what a system is doing as well what happened. Virtually every process running on a system generates logs in some form or another. Usually, these logs are written to files on local disks. When your system grows to multiple hosts, managing the logs and accessing them can get complicated. Searching for a particular error across hundreds of log files on hundreds of servers is difficult without good tools. A common approach to this problem is to setup a centralized logging solution so that multiple logs can be aggregated in a central location.
 
 # alternativas
